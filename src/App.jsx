@@ -36,8 +36,10 @@ export default function AssemblyEndgame() {
     const isGameOver = isGameWon || isGameLost || isTimerOver
     // Adjusting timer
     const interval = 1000
-    const expected = React.useRef(Date.now() + interval)
-    
+    const expected = React.useRef(null)
+    if(gameStart){
+        expected.current = Date.now() + interval
+    }
     // Static values
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
     
